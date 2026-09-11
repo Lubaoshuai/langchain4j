@@ -4,6 +4,7 @@ import dev.langchain4j.internal.ValidationUtils;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 import java.util.stream.Collectors;
 
 /**
@@ -35,7 +36,7 @@ public class MetadataColumDefinition {
                     " [ NULL | NOT NULL ] [ UNIQUE ] [ DEFAULT value ]");
         }
         String name = tokens.get(0);
-        String type = tokens.get(1).toLowerCase();
+        String type = tokens.get(1).toLowerCase(Locale.ROOT);
         return new MetadataColumDefinition(fullDefinition, name, type);
     }
 
